@@ -151,4 +151,3 @@ for n in sizes:
     t3 = time.time()
 
     print(f"{n:5d} | {t1 - t0:.6f}  | {t3 - t2:.6f}")
-
