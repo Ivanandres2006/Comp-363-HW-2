@@ -1,19 +1,19 @@
 # Task 1: Reachability
 def reachability(s, G):
-    R = []        
+    r = []        
     S = [s]       
 
     while S:
         u = S.pop()
 
-        if u not in R:
-            R.append(u)
+        if u not in r:
+            r.append(u)
 
             for v in range(len(G)):
-                if G[u][v] == 1 and v not in R:
+                if G[u][v] == 1 and v not in r:
                     S.append(v)
 
-    return R
+    return r
 
 
 # Task 2: Counting components
