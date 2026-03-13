@@ -1,0 +1,30 @@
+In this experiment, I compared the two MST algorithms, Boruvka's and Kruskal's. 
+I generated randome graphs as adjancey matrices using 0 to respresent no edge and 1 to represent an edge.
+I first made a simple spanning tree so the graph would be connected, then added extra edges with density 0.2.
+The edge weights were random numbers from 1 to 50.
+I tested graph sizes 10, 20, 30, 40, and 50 with 5 trials each.
+For each graph, I ran both algorithms and made sure their MST weights were the same. They always matched. 
+On the small example graph, both had an MST weight of 31.
+
+RESULTS:
+
+[[0, 0, 0, 5, 1, 0], [0, 0, 0, 5, 0, 10], [0, 0, 0, 10, 0, 0], [5, 5, 10, 0, 0, 0], [1, 0, 0, 0, 0, 0], [0, 10, 0, 0, 0, 0]]
+[[0, 0, 0, 5, 1, 0], [0, 0, 0, 5, 0, 10], [0, 0, 0, 10, 0, 0], [5, 5, 10, 0, 0, 0], [1, 0, 0, 0, 0, 0], [0, 10, 0, 0, 0, 0]]
+Boruvka weight: 31
+Kruskal weight: 31
+n       trials  avg_boruvka     std_boruvka     avg_kruskal     std_kruskal
+10      5       0.000108        0.000022        0.000141        0.000100
+20      5       0.000336        0.000069        0.000227        0.000035
+30      5       0.000636        0.000046        0.000419        0.000015
+40      5       0.001098        0.000062        0.000662        0.000015
+50      5       0.001733        0.000144        0.001022        0.000061
+
+As n increases, the Boruvka's runtime increases.
+
+The results match what we expect from theory. The Borůvka implementation runs in about 𝑂(𝑛^4), while Kruskal runs in about 𝑂(𝑛^2). 
+At small sizes they are close, but starting around n = 30–40, Borůvka becomes clearly slower.
+
+The input sizes are still small, and Python adds some overhead. I only ran 5 trials per size
+
+Both algorithms correctly compute the MST, but Kruskal scales much better as the graph size increases.
+
